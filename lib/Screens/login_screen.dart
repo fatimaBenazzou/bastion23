@@ -4,20 +4,13 @@ import 'package:bastion23/Widgets/custom_textfield.dart';
 import 'package:bastion23/theme_config.dart';
 import 'package:flutter/material.dart';
 
-class RegisterScreen extends StatefulWidget {
-  RegisterScreen({Key? key}) : super(key: key);
-
-  @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
-}
-
-class _RegisterScreenState extends State<RegisterScreen> {
+class LoginScreen extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  LoginScreen({Key? key}) : super(key: key);
 
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _cpasswordController = TextEditingController();
-  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +20,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
       body: Container(
         padding: const EdgeInsets.all(20),
         child: AuthScreen(
-          title: 'Create new account',
+          title: 'LOGIN TO YOUR PROFILE',
           subtitle:
               'Give your self time alone with the wonderful strory behind BASTION23',
-          icon: 'verified',
+          icon: 'shy',
 
           //body widgets
           body: Form(
@@ -68,90 +61,86 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   },
                 ),
 
-                const SizedBox(height: 16),
-
-                // consfirm psw
-                CustomTextField(
-                  labelText: 'Confirm Password',
-                  suffixIcon: Icons.lock,
-                  isPassword: true,
-                  controller: _cpasswordController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your password';
-                    }
-                    return null;
-                  },
-                ),
-
-                const SizedBox(height: 16),
-
-                // checkBox
+                // forgot psw
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Checkbox(
-                      activeColor: ThemeConfig.secondaryColor,
-                      value: isChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = value ?? false;
-                        });
-                      },
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'By checking, you’ve read and agree to the ',
-                            maxLines: 1,
-                            overflow: TextOverflow.clip,
-                            style: Theme.of(context).textTheme.bodySmall!,
-                          ),
-                          Text(
-                            'Terms and conditions of service.',
-                            style:
-                                Theme.of(context).textTheme.bodySmall!.copyWith(
-                                      color: ThemeConfig.secondaryColor,
-                                    ),
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
+                    TextButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.black,
+                      ),
+                      child: Text(
+                        'Forgot Password?',
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ),
                   ],
                 ),
-
                 const SizedBox(height: 16),
 
-                // button
+                // buttons
                 CustomElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState?.validate() ?? false) {
                       // Validation successful, implement login functionality
                     }
                   },
-                  text: 'REGISTER',
+                  text: 'CONTINUE',
                   textColor: ThemeConfig.buttonColor,
                   buttonColor: ThemeConfig.primaryColor,
                 ),
                 const SizedBox(height: 8),
 
-                // Login toggle
+                // OR line
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      height: 2,
+                      width: width * 0.3,
+                      color: Colors.black,
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      'OR',
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                    const SizedBox(width: 8),
+                    Container(
+                      height: 2,
+                      width: width * 0.3,
+                      color: Colors.black,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+
+                // Google login o kda
+                CustomElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState?.validate() ?? false) {
+                      // Validation successful, implement login functionality
+                    }
+                  },
+                  text: 'Login with google',
+                  textColor: ThemeConfig.primaryColor,
+                  buttonColor: ThemeConfig.backgroundColor,
+                  icon: Icons.percent,
+                ),
+
+                // SignUp toggle
                 TextButton(
                   onPressed: () {},
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Already have an account?',
+                        'Don\'t have an account?',
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       Text(
-                        ' Login',
+                        ' SignUp',
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                               color: Colors.red,
                             ),

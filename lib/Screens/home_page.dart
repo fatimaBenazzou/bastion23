@@ -1,5 +1,11 @@
+// import 'package:bastion23/Screens/login_screen.dart';
+// import 'package:bastion23/Screens/forgot_password.dart';
+import 'package:bastion23/Screens/forgot_password.dart';
+import 'package:bastion23/Screens/login_screen.dart';
 import 'package:bastion23/Screens/onboarding_screen.dart';
-import 'package:bastion23/theme_config.dart';
+import 'package:bastion23/Screens/register_screen.dart';
+import 'package:bastion23/Screens/reset_password.dart';
+// import 'package:bastion23/Screens/reset_password.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -16,7 +22,16 @@ class MyHomePage extends StatelessWidget {
           'assets/icons/Logo.png',
         ),
       ),
-      body: OnboardingScreen()
+      body: 
+      // Padding(
+        // padding:  EdgeInsets.only(top: 48),
+        // child: 
+        OnboardingScreen(),
+        // RegisterScreen()
+        // LoginScreen()
+        // ForgotPassword()
+        // ResetPassword()
+      // )
     );
   }
 }
