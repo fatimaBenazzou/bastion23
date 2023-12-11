@@ -1,11 +1,11 @@
-import 'package:bastion23/Screens/auth_screen.dart';
+import 'package:bastion23/Widgets/auth.dart';
 import 'package:bastion23/Widgets/custom_button.dart';
 import 'package:bastion23/Widgets/custom_textfield.dart';
 import 'package:bastion23/theme_config.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatefulWidget {
-  RegisterScreen({Key? key}) : super(key: key);
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
@@ -21,7 +21,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
+    // final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: Container(

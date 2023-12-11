@@ -82,9 +82,9 @@ flutter:
     - family: Squirk
       fonts:
         - asset: assets/fonts/Squirk.otf
-    - family: Poppins
-      fonts:
-        - asset: assets/fonts/Poppins
+    # - family: Poppins
+    #   fonts:
+    #     - asset: assets/fonts/Poppins/Poppin
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

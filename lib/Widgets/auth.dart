@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AuthScreen extends StatelessWidget {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  // final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  AuthScreen(
+  const AuthScreen(
       {super.key,
       required this.title,
       required this.subtitle,

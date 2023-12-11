@@ -1,4 +1,5 @@
 import 'package:bastion23/Screens/home_page.dart';
+import 'package:bastion23/Screens/layout_screen.dart';
 import 'package:bastion23/theme_config.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeConfig.lightTheme,
       // darkTheme: ThemeConfig().,
-      home: const MyHomePage(),
+      home: const LayoutScreen(),
     );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:bastion23/Screens/auth_screen.dart';
+import 'package:bastion23/Widgets/auth.dart';
 import 'package:bastion23/Widgets/custom_button.dart';
 import 'package:bastion23/Widgets/custom_textfield.dart';
 import 'package:bastion23/theme_config.dart';
