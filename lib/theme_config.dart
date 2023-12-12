@@ -46,6 +46,25 @@ class ThemeConfig {
     color: subtextColor,
   );
 
+  static const TextStyle poppinsSubHeadingC = TextStyle(
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w800,
+    fontSize: 22.0,
+    color: secondaryColor,
+  );
+
+ static const TextStyle caption = TextStyle(
+    fontFamily: 'Squirk',
+    fontSize: 19.0,
+    color: textColor,
+  );
+
+    static const TextStyle squirkHeadingC = TextStyle(
+    fontFamily: 'Squirk',
+    fontSize: 26.0,
+    color: secondaryColor,
+  );
+
   static const TextStyle squirkHeading1 = TextStyle(
     fontFamily: 'Squirk',
     fontSize: 32.0,
@@ -91,7 +110,7 @@ class ThemeConfig {
     textTheme: ThemeData.light().textTheme.copyWith(
           titleLarge: ThemeConfig.poppinsHeading1,
           titleMedium: ThemeConfig.poppinsHeading2,
-          // titleSmall: ThemeConfig.squirkHeading2,
+          titleSmall: ThemeConfig.squirkHeadingC,
           headlineLarge: ThemeConfig.squirkHeading1,
           headlineMedium: ThemeConfig.squirkHeading2,
           // headlineSmall: ThemeConfig.squirkHeading2,

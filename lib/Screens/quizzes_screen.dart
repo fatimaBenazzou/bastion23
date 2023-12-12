@@ -24,8 +24,15 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
             return ExpansionPanelRadio(
               value: qst.id,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return const ListTile(
-                  title: Text('You are doing great in terms of levels solve more quizzes to earn rewards, keep it up !'),
+                return Row(
+                  children: [
+                     ListTile(
+                      title: Text('Quizz ${qst.id}'),
+                    ),
+                     ListTile(
+                      title: Text('You are doing great in terms of levels solve more quizzes to earn rewards, keep it up !'),
+                    ),
+                  ],
                 );
               },
               body: Column(
