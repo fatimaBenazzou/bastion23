@@ -3,7 +3,7 @@ import 'package:bastion23/Models/quiz_questions.dart';
 import 'package:flutter/material.dart';
 
 class QuizzesScreen extends StatefulWidget {
-  QuizzesScreen({Key? key});
+  const QuizzesScreen({super.key});
 
   @override
   State<QuizzesScreen> createState() => _QuizzesScreenState();
@@ -19,17 +19,17 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
       child: SingleChildScrollView(
         child: ExpansionPanelList.radio(
           elevation: 1,
-          expandedHeaderPadding: EdgeInsets.all(0),
+          expandedHeaderPadding: const EdgeInsets.all(0),
           children: questions.map<ExpansionPanelRadio>((QuizQuestion qst) {
             return ExpansionPanelRadio(
               value: qst.id,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return Row(
+                return Column(
                   children: [
                      ListTile(
                       title: Text('Quizz ${qst.id}'),
                     ),
-                     ListTile(
+                     const ListTile(
                       title: Text('You are doing great in terms of levels solve more quizzes to earn rewards, keep it up !'),
                     ),
                   ],

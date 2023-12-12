@@ -36,15 +36,15 @@ class _LayoutScreenState extends State<LayoutScreen> {
   Widget _buildBody() {
     switch (_selectedPageIndex) {
       case 0:
-        return HomeScreen();
+        return const HomeScreen();
       case 1:
-        return GalleryScreen();
+        return const GalleryScreen();
       case 2:
-        return CameraScreen();
+        return const CameraScreen();
       case 3:
-        return QuizzesScreen();
+        return const QuizzesScreen();
       case 4:
-        return ProfileScreen();
+        return const ProfileScreen();
       default:
         return Container();
     }
@@ -69,7 +69,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
               color: ThemeConfig.buttonColor),
           style: TextButton.styleFrom(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24), // Ajustez le radius ici
+              borderRadius: BorderRadius.circular(24), 
             ),
           ),
         ),
