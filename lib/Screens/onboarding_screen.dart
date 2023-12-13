@@ -60,50 +60,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
         ),
       ),
-
-      // Stack(
-      //   children: [
-      //     // Background image
-      //     Image.asset(
-      //       'assets/images/bab.png',
-      //       fit: BoxFit.cover,
-      //     ),
-
-      //     // Logo
-      //     Center(
-      //       child: Image.asset(
-      //         'assets/icons/Logo.png',
-      //         width: 200,
-      //       ),
-      //     ),
-
-      //     // Text
-      //     const Align(
-      //       alignment: Alignment.bottomCenter,
-      //       child: Text(
-      //         'It\'s Time To See the Story',
-      //         style: TextStyle(
-      //           color: Colors.white,
-      //           fontSize: 20,
-      //         ),
-      //       ),
-      //     ),
-
-      //     // Button
-      //     Positioned(
-      //       bottom: 20,
-      //       right: 20,
-      //       child: ElevatedButton(
-      //         onPressed: () {
-      //           // Go to RegisterScreen
-
-      //           // Navigator.pushNamed(context, '/register');
-      //         },
-      //         child: const Text('Start'),
-      //       ),
-      //     ),
-      //   ],
-      // ),
     );
   }
 

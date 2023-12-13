@@ -17,8 +17,10 @@ class _StoryCardState extends State<StoryCard> {
     // box/card
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (ctx) => const LibraryDetailScreen()));
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (ctx) => LibraryDetailScreen(
+                  chapter: widget.chapter,
+                )));
       },
       child: Container(
         width: 163,

@@ -3,7 +3,13 @@ import 'package:bastion23/Widgets/chapter.dart';
 import 'package:bastion23/Widgets/custom_bar.dart';
 import 'package:flutter/material.dart';
 
-const List<String> rewards = ['Investor1', 'Investor2', 'Investor3', 'Investor2', 'Investor3'];
+const List<String> rewards = [
+  'Investor1',
+  'Investor2',
+  'Investor3',
+  'Investor4',
+  'Investor3'
+];
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,17 +28,26 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(height: 20),
 
           // carrousel
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                ...chapters.map((chap) => Padding(
-                  padding: const EdgeInsets.only(right: 16.0),
-                  child: Chapter(chapter: chap),
-                )).toList(),
-              ],
-            ),
+
+          Container(
+            height: MediaQuery.of(context).size.height * 0.5,
+            child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: chapters.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (ctx, index) =>
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.start,
+                    //   children: [
+                    //     ...chapters.map((chap) =>
+                    Padding(
+                      padding: const EdgeInsets.only(right: 16.0),
+                      child: Chapter(chapter: chapters[index]),
+                    )
+                // ).toList(),
+                // ],
+                // ),
+                ),
           ),
 
           const SizedBox(height: 20),
@@ -53,7 +68,6 @@ class HomeScreen extends StatelessWidget {
                         child: Image.asset(
                           'assets/images/$reward.png',
                           fit: BoxFit.cover,
-                                        
                         ),
                       ),
                     )
