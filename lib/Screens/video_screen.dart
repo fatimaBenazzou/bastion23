@@ -1,12 +1,12 @@
 import 'dart:io';
 import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:bastion23/Screens/photo_screen.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
-import 'package:camera_func/Screens/photo_screen.dart';
 import 'package:path_provider/path_provider.dart' ;
 import 'package:gallery_saver/gallery_saver.dart';
-import 'package:syncfusion_flutter_sliders/sliders.dart';
+// import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class VideoScreen extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -164,7 +164,7 @@ class VideoScreenState extends State<VideoScreen> {
           _focusPoint= Offset(x, y);
         });
         //Reset _focus after a short delay to remove the square
-        await Future.delayed(Duration(seconds:2));
+        await Future.delayed(const Duration(seconds:2));
         setState(() {
           _focusPoint=null;
         });
@@ -190,7 +190,7 @@ class VideoScreenState extends State<VideoScreen> {
         await _controller.initialize();
         await _controller.startVideoRecording();
         //play sound effect
-        audioPlayer.open(Audio('music/start_record.mp3'));
+        audioPlayer.open(Audio('assets/audios/start_record.mp3'));
         audioPlayer.play();
 
         setState(() {
@@ -218,7 +218,7 @@ class VideoScreenState extends State<VideoScreen> {
           await file.copy(_videoPath);
           await GallerySaver.saveVideo(_videoPath);
           //play sound effect
-          audioPlayer.open(Audio('music/stop_record.mp3'));
+          audioPlayer.open(Audio('assets/audios/stop_record.mp3'));
           audioPlayer.play();
         }
       }catch(e){
@@ -245,7 +245,7 @@ class VideoScreenState extends State<VideoScreen> {
                       right:0,
                       child: Container(
                         height:50,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.white,
                         ),
                         child: Row(
@@ -256,7 +256,7 @@ class VideoScreenState extends State<VideoScreen> {
                                 onTap: (){
                                   _toggleFlashLight();
                                 },
-                                child: _isFlashOn==false ? Icon(Icons.flash_off, color:Colors.black): Icon(Icons.flash_on, color:Colors.black),
+                                child: _isFlashOn==false ? const Icon(Icons.flash_off, color:Colors.black): const Icon(Icons.flash_on, color:Colors.black),
                               ),
                             ),
                             Padding(padding:const EdgeInsets.all(10.0),
@@ -264,7 +264,7 @@ class VideoScreenState extends State<VideoScreen> {
                                     onTap: (){
 
                                     },
-                                    child: Icon(Icons.qr_code_scanner,color:Colors.black))
+                                    child: const Icon(Icons.qr_code_scanner,color:Colors.black))
                             ),
                           ],
                         ),
@@ -288,22 +288,22 @@ class VideoScreenState extends State<VideoScreen> {
                       ),
                     ),
                     //Slider
-                    Positioned(
-                        top:50,
-                        right:10,
-                        child: SfSlider.vertical(
-                          max:5.0,
-                          min:1.0,
-                          activeColor: Colors.black,
-                          value: _currentZoom,
-                          onChanged: (dynamic value){
-                            setState(() {
-                              zoomCamera(value);
-                            });
-                          },
-                        )
+                    // Positioned(
+                    //     top:50,
+                    //     right:10,
+                    //     child: SfSlider.vertical(
+                    //       max:5.0,
+                    //       min:1.0,
+                    //       activeColor: Colors.black,
+                    //       value: _currentZoom,
+                    //       onChanged: (dynamic value){
+                    //         setState(() {
+                    //           zoomCamera(value);
+                    //         });
+                    //       },
+                    //     )
 
-                    ),
+                    // ),
                     if(_focusPoint!=null)
                       Positioned.fill(
                           top:50,
@@ -334,7 +334,7 @@ class VideoScreenState extends State<VideoScreen> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      Expanded(
+                                      const Expanded(
                                         child: Center(
                                           child: Text('Video',
                                             style: TextStyle(
@@ -348,9 +348,9 @@ class VideoScreenState extends State<VideoScreen> {
                                         child: GestureDetector(
                                           onTap: (){
                                             //make link between photo option and video option
-                                            Navigator.push(context, MaterialPageRoute(builder:(c)=> CameraScreen(widget.cameras)));
+                                            Navigator.push(context, MaterialPageRoute(builder:(c)=> ImageScreen(widget.cameras)));
                                           },
-                                          child: Center(
+                                          child: const Center(
                                             child: Text('Photo',
                                               style: TextStyle(
                                                 color:Colors.black,
@@ -360,7 +360,7 @@ class VideoScreenState extends State<VideoScreen> {
                                           ),
                                         ),
                                       ),
-                                      Expanded(
+                                      const Expanded(
                                         child: Center(
                                           child: Text('Pro Mode',
                                             style: TextStyle(
@@ -417,8 +417,8 @@ class VideoScreenState extends State<VideoScreen> {
                                                         )
                                                     ),
                                                     child:_isRecording==false?
-                                                    Icon(Icons.play_arrow_rounded,color:Colors.black,size:30)
-                                                    : Icon(Icons.stop,color:Colors.black,size:30,),
+                                                    const Icon(Icons.play_arrow_rounded,color:Colors.black,size:30)
+                                                    : const Icon(Icons.stop,color:Colors.black,size:30,),
                                                   ),
                                                 ),
                                               ),
@@ -428,7 +428,7 @@ class VideoScreenState extends State<VideoScreen> {
                                                   onTap: (){
                                                     _switchCamera();
                                                   },
-                                                  child: Icon(Icons.cameraswitch_outlined, color: Colors.black, size:30),
+                                                  child: const Icon(Icons.cameraswitch_outlined, color: Colors.black, size:30),
                                                 ))
                                           ],
                                         )

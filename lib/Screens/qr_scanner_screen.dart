@@ -129,11 +129,11 @@ class _QrScannerScreenState extends State<QrScannerScreen> {
           appBar: AppBar(
             backgroundColor: Colors.black,
             centerTitle: true,
-            title: Text("QR Scanner"),
-            actions:[
+            title: const Text("QR Scanner"),
+            actions:const [
               Text(""),
             ],
-            leading: Text(""),
+            leading: const Text(""),
           ),
           body: Column(
             children: [

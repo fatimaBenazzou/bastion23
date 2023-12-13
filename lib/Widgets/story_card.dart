@@ -90,56 +90,54 @@ class _StoryCardState extends State<StoryCard> {
             // progress bar + pourcentage
             Padding(
               padding: const EdgeInsets.fromLTRB(12, 0, 12, 16),
-              child: Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: 117,
-                      height: 5,
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            left: 0,
-                            top: 0,
-                            child: Container(
-                              width: 117,
-                              height: 5,
-                              decoration: ShapeDecoration(
-                                color: const Color(0xB2D9D9D9),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    width: 117,
+                    height: 5,
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          left: 0,
+                          top: 0,
+                          child: Container(
+                            width: 117,
+                            height: 5,
+                            decoration: ShapeDecoration(
+                              color: const Color(0xB2D9D9D9),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
                               ),
                             ),
                           ),
-                          Positioned(
-                            left: 0,
-                            top: 0,
-                            child: Container(
-                              width: 32.57,
-                              height: 5,
-                              decoration: ShapeDecoration(
-                                color: const Color(0xFFF6851B),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
+                        ),
+                        Positioned(
+                          left: 0,
+                          top: 0,
+                          child: Container(
+                            width: 32.57,
+                            height: 5,
+                            decoration: ShapeDecoration(
+                              color: const Color(0xFFF6851B),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
                               ),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    Text(
-                      '${widget.chapter.avancement}%',
-                      style: const TextStyle(
-                        color: ThemeConfig.textColor,
-                        fontSize: 10,
-                        fontWeight: FontWeight.w600,
-                      ),
+                  ),
+                  Text(
+                    '${widget.chapter.avancement}%',
+                    style: const TextStyle(
+                      color: ThemeConfig.textColor,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],

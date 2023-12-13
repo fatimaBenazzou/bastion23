@@ -1,6 +1,6 @@
-import 'package:bastion23/Screens/camera_screen.dart';
 import 'package:bastion23/Screens/gallery_screen.dart';
 import 'package:bastion23/Screens/home_screen.dart';
+import 'package:bastion23/Screens/photo_screen.dart';
 import 'package:bastion23/Screens/profile_screen.dart';
 import 'package:bastion23/Screens/quizzes_screen.dart';
 import 'package:bastion23/Widgets/app_bar.dart';
@@ -9,7 +9,9 @@ import 'package:bastion23/theme_config.dart';
 import 'package:flutter/material.dart';
 
 class LayoutScreen extends StatefulWidget {
-  const LayoutScreen({super.key});
+  final cameras;
+
+  const LayoutScreen(this.cameras, {super.key});
 
   @override
   State<LayoutScreen> createState() => _LayoutScreenState();
@@ -41,7 +43,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
       case 1:
         return const GalleryScreen();
       case 2:
-        return const CameraScreen();
+        return  ImageScreen(widget.cameras);
       case 3:
         return const QuizzesScreen();
       case 4:

@@ -1,4 +1,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Grants permission to access the device's camera hardware -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Specifies that the app requires access to a camera -->
+    <uses-feature android:name="android.hardware.camera" />
+
+    <!-- Specifies that the app requires a camera with autofocus capability -->
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <!-- Grants permission to access the device's microphone for audio recording -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- Grants permission to write to external storage (saving photos/videos) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- Grants permission to read from external storage (accessing saved media) -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Grants permission to access the internet for certain functionalities -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
     <application
         android:label="bastion23"
         android:name="${applicationName}"

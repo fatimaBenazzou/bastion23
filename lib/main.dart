@@ -1,8 +1,13 @@
 import 'package:bastion23/Screens/layout_screen.dart';
 import 'package:bastion23/theme_config.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+List<CameraDescription> cameras=[];
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras =await availableCameras();
   runApp(const MyApp());
 }
 
@@ -15,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeConfig.lightTheme,
       // darkTheme: ThemeConfig().,
-      home:  LayoutScreen(),
+      home:  LayoutScreen(cameras),
     );
   }
 }
