@@ -88,10 +88,13 @@ class _LibraryDetailScreenState extends State<LibraryDetailScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              chapter.title,
-                              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                                fontSize: 20,
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.55,
+                              child: Text(
+                                chapter.title,
+                                style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                                  fontSize: 20,
+                                ),
                               ),
                             ),
                             ElevatedButton.icon(
