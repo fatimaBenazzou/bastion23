@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class DScreen extends StatelessWidget {
   DScreen({super.key});
-  final List<String> images = List.generate(9, (index) => 'assets/images/image$index.jpg');
+  final List<String> images = List.generate(10, (index) => 'assets/images/image$index.jpg');
 
   @override
   Widget build(BuildContext context) {

@@ -41,28 +41,15 @@ class ModelItem extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.grey,
           borderRadius: BorderRadius.circular(8.0),
         ),
         margin: const EdgeInsets.all(8.0),
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Display an image (you can replace AssetImage with NetworkImage if the images are remote)
-            Image.asset(
-              'assets/images/${modelInfo.name.toLowerCase().replaceAll(" ", "_")}_thumb.jpg', // Adjust the path accordingly
-              width: 64.0,
-              height: 64.0,
-              fit: BoxFit.cover,
-            ),
-            const SizedBox(height: 8.0),
-            // Display the model name
-            Text(
-              modelInfo.name,
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
+        child: Image.asset(
+          'assets/images/${modelInfo.name.toLowerCase().replaceAll(" ", "_")}_thumb.jpg', // Adjust the path accordingly
+          width: 64.0,
+          height: 64.0,
+          fit: BoxFit.cover,
         ),
       ),
     );

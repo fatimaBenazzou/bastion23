@@ -9,6 +9,7 @@ import 'package:bastion23/theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LayoutScreen extends StatefulWidget {
   final cameras;
@@ -20,38 +21,54 @@ class LayoutScreen extends StatefulWidget {
 }
 
 class _LayoutScreenState extends State<LayoutScreen> {
-  int _selectedPageIndex = 0;
+ int _selectedPageIndex = 0;
   bool playMusic = true;
-  String music = 'Off';
+  String music = 'On';
   late AudioPlayer _audioPlayer;
-  late String serviceStatus = 'running';
+  late SharedPreferences _prefs;
+  static const String playbackPositionKey = 'playback_position';
 
   @override
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
+
+    SharedPreferences.getInstance().then((prefs) {
+      _prefs = prefs;
+      _loadPlaybackPosition();
+    });
+
+    FlutterBackgroundService().startService(); // You might need to adjust this based on your background audio service implementation
+
+    // Listen for changes in playback position
+    _audioPlayer.positionStream.listen((position) {
+      _savePlaybackPosition(position);
+    });
+
+    _audioPlayer.setAsset('assets/audios/audio_bg.mp3');
+    if (playMusic) {
+      _audioPlayer.play();
+    }
   }
 
-  @override
-  void dispose() {
-    _audioPlayer.dispose();
-    super.dispose();
+  Future<void> _loadPlaybackPosition() async {
+    final double savedPosition = _prefs.getDouble(playbackPositionKey) ?? 0.0;
+    await _audioPlayer.seek(Duration(seconds: savedPosition.toInt()));
+  }
+
+  void _savePlaybackPosition(Duration position) async {
+    await _prefs.setDouble(playbackPositionKey, position.inSeconds.toDouble());
   }
 
 
-  void toggleMusic() async{
+void toggleMusic() async {
     setState(() {
       playMusic = !playMusic;
       playMusic ? music = 'On' : music = 'Off';
       if (playMusic) {
-
-           FlutterBackgroundService().startService();
-          _audioPlayer.setAsset('assets/audios/audio_bg.mp3');
-          _audioPlayer.play();
-
+        _audioPlayer.play();
       } else {
         _audioPlayer.stop();
-
       }
     });
   }
@@ -90,17 +107,14 @@ class _LayoutScreenState extends State<LayoutScreen> {
         right: 16.0,
         child: ElevatedButton.icon(
           onPressed: toggleMusic,
-
-
-      label: Text(
+          label: Text(
             'Music $music',
             style: ThemeConfig.squirkButton,
           ),
-          icon: const Icon(Icons.music_note_rounded,
-              color: ThemeConfig.buttonColor),
+          icon: const Icon(Icons.music_note_rounded, color: ThemeConfig.buttonColor),
           style: TextButton.styleFrom(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24), // Ajustez le radius ici
+              borderRadius: BorderRadius.circular(24),
             ),
           ),
         ),
