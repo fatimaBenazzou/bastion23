@@ -51,7 +51,7 @@ class ModelItem extends StatelessWidget {
           children: [
             // Display an image (you can replace AssetImage with NetworkImage if the images are remote)
             Image.asset(
-              'images/${modelInfo.name.toLowerCase().replaceAll(" ", "_")}_thumb.jpg', // Adjust the path accordingly
+              'assets/images/${modelInfo.name.toLowerCase().replaceAll(" ", "_")}_thumb.jpg', // Adjust the path accordingly
               width: 64.0,
               height: 64.0,
               fit: BoxFit.cover,
@@ -100,12 +100,12 @@ class ModelInfo {
 
 // List of models
 final List<ModelInfo> modelList = [
-  ModelInfo(name: 'Bench 3D', path: 'Flutter_3D/bench.glb'),
-  ModelInfo(name: 'Window', path: 'Flutter_3D/ta9a.glb'),
-  ModelInfo(name: 'Cote Interieur', path: 'Flutter_3D/scene.glb'),
-  ModelInfo(name: 'Door1', path: 'Flutter_3D/door1.glb'),
-  ModelInfo(name: 'Door2', path: 'Flutter_3D/door2.glb'),
-  ModelInfo(name: 'Algeria_flag', path: 'Flutter_3D/flag.glb'),
-  ModelInfo(name: 'Cube', path: 'Flutter_3D/cube.glb'),
-  ModelInfo(name: 'Mure', path: 'Flutter_3D/fpart.glb'),
+  ModelInfo(name: 'Bench 3D', path: 'assets/images/bench.glb'),
+  ModelInfo(name: 'Window', path: 'assets/images/ta9a.glb'),
+  ModelInfo(name: 'Cote Interieur', path: 'assets/images/scene.glb'),
+  ModelInfo(name: 'Door1', path: 'assets/images/door1.glb'),
+  ModelInfo(name: 'Door2', path: 'assets/images/door2.glb'),
+  ModelInfo(name: 'Algeria_flag', path: 'assets/images/flag.glb'),
+  ModelInfo(name: 'Cube', path: 'assets/images/cube.glb'),
+  ModelInfo(name: 'Mure', path: 'assets/images/fpart.glb'),
 ];
