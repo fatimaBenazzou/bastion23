@@ -42,3 +42,14 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+assets/models/bench.glb
+assets/models/cadre.glb
+assets/models/cube.glb
+assets/models/door1.glb
+assets/models/door2.glb
+assets/models/flag.glb
+assets/models/fpart.glb
+assets/models/scene.glb
+assets/models/ta9a.glb
+assets/models/test.glb
+assets/models/window.glb

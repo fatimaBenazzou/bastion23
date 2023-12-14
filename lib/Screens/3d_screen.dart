@@ -100,12 +100,12 @@ class ModelInfo {
 
 // List of models
 final List<ModelInfo> modelList = [
-  ModelInfo(name: 'Bench 3D', path: 'assets/images/bench.glb'),
-  ModelInfo(name: 'Window', path: 'assets/images/ta9a.glb'),
-  ModelInfo(name: 'Cote Interieur', path: 'assets/images/scene.glb'),
-  ModelInfo(name: 'Door1', path: 'assets/images/door1.glb'),
-  ModelInfo(name: 'Door2', path: 'assets/images/door2.glb'),
-  ModelInfo(name: 'Algeria_flag', path: 'assets/images/flag.glb'),
-  ModelInfo(name: 'Cube', path: 'assets/images/cube.glb'),
-  ModelInfo(name: 'Mure', path: 'assets/images/fpart.glb'),
+  ModelInfo(name: 'Bench 3D', path: 'assets/models/bench.glb'),
+  ModelInfo(name: 'Window', path: 'assets/models/ta9a.glb'),
+  ModelInfo(name: 'Cote Interieur', path: 'assets/models/scene.glb'),
+  ModelInfo(name: 'Door1', path: 'assets/models/door1.glb'),
+  ModelInfo(name: 'Door2', path: 'assets/models/door2.glb'),
+  ModelInfo(name: 'Algeria_flag', path: 'assets/models/flag.glb'),
+  ModelInfo(name: 'Cube', path: 'assets/models/cube.glb'),
+  ModelInfo(name: 'Mure', path: 'assets/models/fpart.glb'),
 ];
