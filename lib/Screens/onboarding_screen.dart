@@ -1,10 +1,13 @@
 // import 'package:bastion23/Screens/register_screen.dart';
+import 'package:bastion23/Screens/login_screen.dart';
 import 'package:bastion23/Widgets/custom_button.dart';
 import 'package:bastion23/theme_config.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({super.key});
+  final cameras;
+
+  const OnboardingScreen(this.cameras, {super.key});
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
@@ -18,6 +21,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
+       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        title: Image.asset(
+          'assets/icons/Logo.png',
+        ),
+      ),
       key: _scaffoldKey,
       body: Container(
         decoration: const BoxDecoration(
@@ -44,15 +55,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   SizedBox(
                     width: double.infinity,
                     child: CustomElevatedButton(
-              onPressed: () {
-                // if (_formKey.currentState?.validate() ?? false) {
-                // Validation successful, implement login functionality
-                // }
-              },
-              text: 'Start',
-              textColor: ThemeConfig.buttonColor,
-              buttonColor: ThemeConfig.primaryColor,
-            ),
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (ctx) => LoginScreen(widget.cameras),
+                          ),
+                        );
+                      },
+                      text: 'Start',
+                      textColor: ThemeConfig.buttonColor,
+                      buttonColor: ThemeConfig.primaryColor,
+                    ),
                   )
                 ],
               ),

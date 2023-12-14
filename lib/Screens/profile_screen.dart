@@ -1,5 +1,6 @@
 import 'package:bastion23/Widgets/custom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -112,10 +113,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     color: Colors.red,
                   ),
                 ),
-                onTap: () {
+               
                   // Add your action here
-                  print('Im loggin out');
-                },
+                   onTap: () {
+              FirebaseAuth.instance.signOut();
+            },
+                
               )
             ],
           ),

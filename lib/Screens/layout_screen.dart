@@ -7,11 +7,13 @@ import 'package:bastion23/Widgets/app_bar.dart';
 import 'package:bastion23/Widgets/custom_nav.dart';
 import 'package:bastion23/theme_config.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:flutter_background_service/flutter_background_service.dart';
 
 class LayoutScreen extends StatefulWidget {
   final cameras;
-
   const LayoutScreen(this.cameras, {super.key});
+
 
   @override
   State<LayoutScreen> createState() => _LayoutScreenState();
@@ -20,13 +22,37 @@ class LayoutScreen extends StatefulWidget {
 class _LayoutScreenState extends State<LayoutScreen> {
   int _selectedPageIndex = 0;
   bool playMusic = true;
-  String music = 'On';
+  String music = 'Off';
+  late AudioPlayer _audioPlayer;
+  late String serviceStatus = 'running';
 
-  void toggleMusic() {
+  @override
+  void initState() {
+    super.initState();
+    _audioPlayer = AudioPlayer();
+  }
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
+  }
+
+
+  void toggleMusic() async{
     setState(() {
       playMusic = !playMusic;
-
       playMusic ? music = 'On' : music = 'Off';
+      if (playMusic) {
+
+           FlutterBackgroundService().startService();
+          _audioPlayer.setAsset('assets/audios/audio_bg.mp3');
+          _audioPlayer.play();
+
+      } else {
+        _audioPlayer.stop();
+
+      }
     });
   }
 
@@ -41,7 +67,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
       case 0:
         return const HomeScreen();
       case 1:
-        return const GalleryScreen();
+        return GalleryScreen();
       case 2:
         return  ImageScreen(widget.cameras);
       case 3:
@@ -64,7 +90,9 @@ class _LayoutScreenState extends State<LayoutScreen> {
         right: 16.0,
         child: ElevatedButton.icon(
           onPressed: toggleMusic,
-          label: Text(
+
+
+      label: Text(
             'Music $music',
             style: ThemeConfig.squirkButton,
           ),

@@ -89,7 +89,7 @@ class _LibraryDetailScreenState extends State<LibraryDetailScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.55,
+                              width: MediaQuery.of(context).size.width * 0.5,
                               child: Text(
                                 chapter.title,
                                 style: Theme.of(context)
