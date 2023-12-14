@@ -19,7 +19,7 @@ class AuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 60),
+        padding: const EdgeInsets.only(top: 16),
         child: Container(
           padding: const EdgeInsets.all(20),
           child: SingleChildScrollView(

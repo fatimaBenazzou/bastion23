@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:bastion23/Screens/forgot_password.dart';
 import 'package:bastion23/Screens/layout_screen.dart';
 import 'package:bastion23/Widgets/auth.dart';
 import 'package:bastion23/Widgets/custom_button.dart';
@@ -72,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
         });
       }
 
-       Navigator.of(context).pushReplacement(
+      Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => LayoutScreen(widget.cameras),
         ),
@@ -107,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
         actions: [],
       ),
       body: Container(
-        padding: const EdgeInsets.all(20),
+        // padding: const EdgeInsets.symmetric(horizontal:20),
         child: AuthScreen(
           title: _isLogin ? 'LOGIN TO YOUR PROFILE' : 'Create new account',
           subtitle:
@@ -120,6 +121,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                const SizedBox(height: 20),
                 if (!_isLogin)
                   UserImagePicker(
                     onPickImage: (pickedImage) {
@@ -128,7 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 CustomTextField(
                   labelText: 'Email Address',
-                  suffixIcon: Icons.person_outlined,
+                  suffixIcon: Icons.email_outlined,
                   keyboardType: TextInputType.emailAddress,
                   validator: (value) {
                     if (value == null ||
@@ -174,7 +176,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => ForgotPassword(),
+                          ),
+                        );
+                      },
                       style: TextButton.styleFrom(
                         foregroundColor: Colors.black,
                       ),
